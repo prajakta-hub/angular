@@ -1,0 +1,27 @@
+<fieldset>
+<legend>Patient data</legend>
+<input type="text" id ="mytext" [(ngModel)] = "searchText" placeholder="search here">
+Click on choose button to select particular item:-
+<table >
+<tr *ngFor="let item of data | filterPipe : searchText">
+  <td><input type = "checkbox" (click)="add(item)"/></td>
+  <td><label class="strikethrough">{{ item.name }}</label></td>
+</tr>
+</table>
+The data that you have selected :-
+<table>
+ 
+<tr *ngFor="let item2 of data2">
+    <td>{{ item2.id }}</td>
+  <td>{{ item2.name }}</td>
+</tr>
+</table>
+</fieldset>
+<style>
+input[type=checkbox]:not(:checked) + label.strikethrough{
+  text-decoration: line-through;
+}
+table, tr,td {
+  border: 1px solid black;
+}
+</style>
